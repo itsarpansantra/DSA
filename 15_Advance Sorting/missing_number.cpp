@@ -1,0 +1,49 @@
+# include<iostream>
+# include<vector>
+using namespace std;
+// int main(){
+//     int arr[]={4,5,1,0,2};
+//     int n = sizeof(arr)/sizeof(arr[0]);
+//     vector<int>(arr,arr+n);
+
+//     vector<bool>check(n+1,false);
+
+//     for(int i=0;i<n;i++){
+//         int element = arr[i];
+//         check[element]=true;
+//     }
+//     for(int i=0;i<=n;i++){
+//         if(check[i]==false ) cout<<i;
+//     }
+// }
+
+// int main(){
+//     int arr[]={5,9,6,3,2,1,4,7,0};
+//     int n =sizeof(arr)/sizeof(arr[0]);
+//     vector<int>(arr,arr+n);
+//     int i=0;
+
+//     while(i<n){
+//         int correctIdx=arr[i]; // first element
+//         if(correctIdx==i || arr[i]==n) i++; // jodi corrctIdx element tar nijer position thaka || ar first element jadi n hoy
+//         else (swap(arr[i],arr[correctIdx])); // aki index same element na thakla swap hoba
+//     }
+//     for(int i=0;i<n;i++){
+//         if(arr[i]!=i) cout<<i; // ja element correct index thakba na seta show hoba 
+        
+//     }
+//      cout<< n;
+// }
+
+int main(){
+    int arr[]={5,9,6,3,2,1,4,7,0};
+    int n =sizeof(arr)/sizeof(arr[0]);
+    vector<int>(arr,arr+n);
+
+    int actualsum= n*(n+1)/2;  // 1 to n no of sum
+    int sum =0;
+    for(int i=0;i<n;i++){ // jai array ta doa acha tar sum
+        sum+=arr[i];
+    }
+    cout<<actualsum-sum;
+}
