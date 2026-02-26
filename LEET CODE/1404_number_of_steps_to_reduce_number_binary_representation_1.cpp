@@ -1,0 +1,52 @@
+/*
+Given the binary representation of an integer as a string s, return the number of steps to reduce it to 1 under the following rules:
+
+If the current number is even, you have to divide it by 2.
+
+If the current number is odd, you have to add 1 to it.
+
+It is guaranteed that you can always reach one for all test cases.
+
+ 
+
+Example 1:
+
+Input: s = "1101"
+Output: 6
+Explanation: "1101" corressponds to number 13 in their decimal representation.
+Step 1) 13 is odd, add 1 and obtain 14. 
+Step 2) 14 is even, divide by 2 and obtain 7.
+Step 3) 7 is odd, add 1 and obtain 8.
+Step 4) 8 is even, divide by 2 and obtain 4.  
+Step 5) 4 is even, divide by 2 and obtain 2. 
+Step 6) 2 is even, divide by 2 and obtain 1.  
+Example 2:
+
+Input: s = "10"
+Output: 1
+Explanation: "10" corresponds to number 2 in their decimal representation.
+Step 1) 2 is even, divide by 2 and obtain 1.  
+Example 3:
+
+Input: s = "1"
+Output: 0
+*/
+# include<iostream>
+using namespace std;
+int binary_representation(string str){
+    int step = 0;
+    int carry=0;
+    for(int i=str.size()-1;i>0;i--){ // 0th bit k jabo na
+        int bit = (str[i]-'0')+carry;
+        if(bit==1){ // odd number . it has take 2 steps first add then /by 2 
+            step+=2;
+            carry = 1;
+        }
+        else step+=1; // even number no carry 
+    }
+    return step+carry; // carry for 0th index element 
+}
+int main(){
+    string str = "1101";
+    cout<<binary_representation(str);
+}
